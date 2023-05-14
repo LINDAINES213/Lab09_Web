@@ -46,6 +46,7 @@ button:focus {
 .Display {
   grid-column: 1 / -1;
   padding: 16px;
+  font-size: 25px;
   display: flex;
   margin: 10px 10px 20px;
   flex-direction: column;
