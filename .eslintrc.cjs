@@ -7,7 +7,7 @@ module.exports = {
     'airbnb',
   ],
   parserOptions: { ecmaVersion: 'latest', sourceType: 'module' },
-  settings: { react: { version: 'auto' } },
+  settings: { react: { version: '18.1' } },
   plugins: ['react'],
   rules: {
     semi: ['error', 'never'],
