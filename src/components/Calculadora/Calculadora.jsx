@@ -70,7 +70,9 @@ function Calculadora() {
         </button>
         <button type="button" onClick={handleDelete}>&larr;</button>
         <button type="button" onClick={handleModulo}>%</button>
-        <button type="button" onClick={handleDivision}>/</button>
+        <button type="button" onClick={handleDivision}>
+          /
+        </button>
         <button type="button" name="7" onClick={handleClick}>
           7
         </button>
