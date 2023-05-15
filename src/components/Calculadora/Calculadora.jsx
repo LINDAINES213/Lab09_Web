@@ -24,7 +24,12 @@ function Calculadora() {
     try {
       // eslint-disable-next-line no-eval
       const calculatedResult = eval(result).toString()
-      setResult(calculatedResult.includes('-') ? 'ERROR' : calculatedResult)
+
+      if (calculatedResult.length > 9) {
+        setResult(calculatedResult.slice(0, 9))
+      } else {
+        setResult(calculatedResult)
+      }
     } catch (error) {
       setResult('ERROR')
     }
