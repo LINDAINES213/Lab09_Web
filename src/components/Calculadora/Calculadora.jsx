@@ -6,8 +6,15 @@ function Calculadora() {
   const handleClick = (e) => {
     if (
       result.length < 9
-      && parseInt(result + e.target.name, 10) <= 999999999
-    ) {
+      && parseInt(result + e.target.name, 10) <= 999999999) {
+      if (e.target.name === '.') {
+        if (result.slice(-1) === '.') {
+          return
+        }
+        if (result.includes('.') && Number.isNaN(result.slice(-1))) {
+          return
+        }
+      }
       setResult(result + e.target.name)
     }
   }
@@ -29,6 +36,18 @@ function Calculadora() {
         setResult(calculatedResult.slice(0, 9))
       } else {
         setResult(calculatedResult)
+      }
+
+      if (calculatedResult > 999999999) {
+        setResult('ERROR')
+      }
+
+      if (calculatedResult === 'Infinity' || calculatedResult === '-Infinity') {
+        setResult('ERROR')
+      }
+
+      if (parseFloat(calculatedResult) < 0) {
+        setResult('ERROR')
       }
     } catch (error) {
       setResult('ERROR')
@@ -57,7 +76,9 @@ function Calculadora() {
 
   const handleNegativo = () => {
     if (result.length < 9) {
-      setResult(parseFloat(result) * -1)
+      const parsedResult = parseFloat(result)
+      const negativoResult = parsedResult * -1
+      setResult(negativoResult.toString())
     }
   }
 
